@@ -49,10 +49,13 @@ public class NewsAdapter extends ArrayAdapter<News>{
         }
 
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_view);
-        dateTextView.setText(currentNews.getDate());
+        dateTextView.setText(date);
 
         TextView timeTextView = (TextView) listItemView.findViewById(R.id.time_view);
         timeTextView.setText(time);
+
+        TextView authorTextView = (TextView) listItemView.findViewById(R.id.author_view);
+        authorTextView.setText(currentNews.getAuthor());
 
         return listItemView;
     }

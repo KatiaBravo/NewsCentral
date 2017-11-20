@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="@string/date"
-            android:paddingLeft="4dp"
+            android:paddingLeft="8dp"
             android:paddingBottom="8dp"/>
 
         <TextView
@@ -51,6 +51,12 @@
 
     </LinearLayout>
 
-
+    <TextView
+        android:id="@+id/author_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        tools:text="@string/author"
+        android:paddingLeft="8dp"/>
 
 </LinearLayout>

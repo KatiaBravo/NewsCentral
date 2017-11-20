@@ -98,7 +98,14 @@ public final class QueryUtils {
                 String title = article.getString("webTitle");
                 String date = article.getString("webPublicationDate");
                 String url = article.getString("webUrl");
-                news.add(new News(type, title, date, url));
+                String author;
+                String na = "";
+                if (article.has("author")) {
+                    author = article.getString("author");
+                }else{
+                    author = na;
+                }
+                news.add(new News(type, title, date, url, author));
             }
 
         } catch (JSONException e) {
