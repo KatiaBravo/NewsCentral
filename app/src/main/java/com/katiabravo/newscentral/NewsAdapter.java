@@ -22,7 +22,6 @@ public class NewsAdapter extends ArrayAdapter<News>{
     }
 
     String date;
-    String time;
     private static final String DATE_AND_TIME_SEPARATOR = "T";
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -45,14 +44,10 @@ public class NewsAdapter extends ArrayAdapter<News>{
         if (originalDateAndTime.contains(DATE_AND_TIME_SEPARATOR)){
             String[] dateAndTimeParts = originalDateAndTime.split(DATE_AND_TIME_SEPARATOR);
             date = dateAndTimeParts[0];
-            time = dateAndTimeParts[1];
         }
 
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_view);
         dateTextView.setText(date);
-
-        TextView timeTextView = (TextView) listItemView.findViewById(R.id.time_view);
-        timeTextView.setText(time);
 
         TextView authorTextView = (TextView) listItemView.findViewById(R.id.author_view);
         authorTextView.setText(currentNews.getAuthor());
