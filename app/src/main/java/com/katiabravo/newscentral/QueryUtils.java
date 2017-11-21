@@ -18,6 +18,8 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.tag;
+
 /**
  * Created by wendy on 9/17/2017.
  */
@@ -98,12 +100,16 @@ public final class QueryUtils {
                 String title = article.getString("webTitle");
                 String date = article.getString("webPublicationDate");
                 String url = article.getString("webUrl");
-                String author;
-                String na = "";
-                if (article.has("author")) {
-                    author = article.getString("author");
-                }else{
-                    author = na;
+                JSONArray tags = article.getJSONArray("tags");
+                for(int a = 0; a < tags.length(); a++) {
+                    JSONObject tagItems = tags.getJSONObject(a);
+                    String author;
+                    String na = "";
+                    if (tagItems.getString("webTitle") != null){
+                        author = tagItems.getString("webTitle");
+                    }else{
+                        author = na;
+                    }
                 }
                 news.add(new News(type, title, date, url, author));
             }

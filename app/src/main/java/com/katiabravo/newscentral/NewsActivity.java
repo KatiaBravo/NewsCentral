@@ -21,7 +21,7 @@ public class NewsActivity extends AppCompatActivity implements android.app.Loade
 
     public static final String LOG_TAG = NewsActivity.class.getName();
 
-    private static final String NEWS_REQUEST_URI = "https://content.guardianapis.com/search?q=basketball&api-key=test";
+    private static final String NEWS_REQUEST_URI = "https://content.guardianapis.com/search?q=basketball&api-key=test&show-tags=contributor";
 
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
