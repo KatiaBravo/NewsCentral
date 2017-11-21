@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import static android.view.View.Z;
+import static com.katiabravo.newscentral.R.string.date;
 
 /**
  * Created by wendy on 9/17/2017.
@@ -20,9 +21,8 @@ public class NewsAdapter extends ArrayAdapter<News>{
     public NewsAdapter(Context context, List<News> news){
         super(context, 0, news);
     }
-
     String date;
-    private static final String DATE_AND_TIME_SEPARATOR = "T";
+    private static final String DATE_SEPERATOR = "T";
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
@@ -39,11 +39,10 @@ public class NewsAdapter extends ArrayAdapter<News>{
         TextView titleTextView = (TextView) listItemView.findViewById(R.id.title_view);
         titleTextView.setText(currentNews.getTitle());
 
-        String originalDateAndTime = currentNews.getDate();
-
-        if (originalDateAndTime.contains(DATE_AND_TIME_SEPARATOR)){
-            String[] dateAndTimeParts = originalDateAndTime.split(DATE_AND_TIME_SEPARATOR);
-            date = dateAndTimeParts[0];
+        String originalDate = currentNews.getDate();
+        if (originalDate.contains(DATE_SEPERATOR)){
+            String[] dateParts = originalDate.split(DATE_SEPERATOR);
+            date = dateParts[0];
         }
 
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_view);

@@ -2,10 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:weightSum="5"
+    android:weightSum="6"
     android:paddingRight="8dp">
 
     <TextView
@@ -14,9 +15,9 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         tools:text="@string/type"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryDarker"
         android:textAllCaps="true"
-        android:paddingTop="8dp"
+        android:paddingTop="10dp"
         android:paddingLeft="8dp"
         android:paddingBottom="4dp" />
 
@@ -31,29 +32,23 @@
         android:paddingLeft="8dp"
         android:paddingBottom="4dp"/>
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/date_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:text="@string/date"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        android:paddingLeft="8dp" />
 
-        <TextView
-            android:id="@+id/date_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/date"
-            android:textColor="@color/colorAccent"
-            android:textSize="12sp"
-            android:paddingLeft="8dp"
-            android:paddingBottom="8dp"/>
-
-        <TextView
-            android:id="@+id/author_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            tools:text="@string/author"
-            android:paddingLeft="8dp"/>
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/author_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:text="@string/author"
+        android:textColor="@color/colorPrimaryDark"
+        android:paddingLeft="8dp" />
 </LinearLayout>
