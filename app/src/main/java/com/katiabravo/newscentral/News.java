@@ -17,7 +17,7 @@ public class News {
         mTitle = title;
         mDate = date;
         mUrl = url;
-        mAuthor = author;
+        mAuthor = "By: " + author;
     }
 
     public String getType(){return mType;}
