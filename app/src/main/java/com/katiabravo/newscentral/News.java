@@ -1,9 +1,5 @@
 package com.katiabravo.newscentral;
 
-/**
- * Created by wendy on 9/15/2017.
- */
-
 public class News {
 
     String mTitle;

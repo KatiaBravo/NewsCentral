@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,18 @@ public class NewsActivity extends AppCompatActivity implements android.app.Loade
 
     public static final String LOG_TAG = NewsActivity.class.getName();
 
+    //Uri Builder below
+
+    /**Uri.Builder newsBuilder = new Uri.Builder();
+    newsBuilder.scheme("https").authority("content.guardianapis.com").appendPath("search")
+    .appendQueryParameter("type", "1")
+    .appendQueryParameter("sort", "relevance")
+    .fragment("section-name");
+    String NEWS_REQUEST_URI = newsBuilder.build().toString();**/
+
     private static final String NEWS_REQUEST_URI = "https://content.guardianapis.com/search?q=basketball&api-key=test&show-tags=contributor";
 
+    //Add a searchview on top to search for stories
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private static final int NEWS_LOADER_ID = 1;
@@ -41,22 +52,28 @@ public class NewsActivity extends AppCompatActivity implements android.app.Loade
             mEmptyStateTextView.setText(R.string.no_internet);
         }
 
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        ListView newsListView = (ListView) findViewById(R.id.list);
 
         mAdapter = new NewsAdapter(this, new ArrayList<News>());
-        earthquakeListView.setAdapter(mAdapter);
-        earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        newsListView.setAdapter(mAdapter);
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 News currentNews = mAdapter.getItem(position);
                 Uri newsUrl = Uri.parse(currentNews.getUrl());
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, newsUrl);
-                startActivity(websiteIntent);
+                if (websiteIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(websiteIntent);
+                } else {
+                    Context context = getApplicationContext();
+                    Toast websiteUnavailable = Toast.makeText(context, "Website unavailable", Toast.LENGTH_SHORT);
+                    websiteUnavailable.show();
+                }
             }
         });
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
-        earthquakeListView.setEmptyView(mEmptyStateTextView);
+        newsListView.setEmptyView(mEmptyStateTextView);
     }
 
     @Override

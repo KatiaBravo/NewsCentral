@@ -12,10 +12,6 @@ import java.util.List;
 import static android.view.View.Z;
 import static com.katiabravo.newscentral.R.string.date;
 
-/**
- * Created by wendy on 9/17/2017.
- */
-
 public class NewsAdapter extends ArrayAdapter<News>{
 
     public NewsAdapter(Context context, List<News> news){
@@ -30,7 +26,7 @@ public class NewsAdapter extends ArrayAdapter<News>{
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.news_list_item, parent, false);
         }
-
+//View Holder?
         News currentNews = getItem(position);
 
         TextView typeTextView = (TextView) listItemView.findViewById(R.id.type_view);

@@ -4,10 +4,7 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 
 import java.util.List;
-
-/**
- * Created by wendy on 9/17/2017.
- */
+//add more comments
 
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
     private String mUrl;
