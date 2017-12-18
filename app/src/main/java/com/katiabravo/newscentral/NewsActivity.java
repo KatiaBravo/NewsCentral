@@ -22,18 +22,8 @@ public class NewsActivity extends AppCompatActivity implements android.app.Loade
 
     public static final String LOG_TAG = NewsActivity.class.getName();
 
-    //Uri Builder below
-
-    /**Uri.Builder newsBuilder = new Uri.Builder();
-    newsBuilder.scheme("https").authority("content.guardianapis.com").appendPath("search")
-    .appendQueryParameter("type", "1")
-    .appendQueryParameter("sort", "relevance")
-    .fragment("section-name");
-    String NEWS_REQUEST_URI = newsBuilder.build().toString();**/
-
     private static final String NEWS_REQUEST_URI = "https://content.guardianapis.com/search?q=basketball&api-key=test&show-tags=contributor";
 
-    //Add a searchview on top to search for stories
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private static final int NEWS_LOADER_ID = 1;

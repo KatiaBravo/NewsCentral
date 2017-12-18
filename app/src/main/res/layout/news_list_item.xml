@@ -11,30 +11,27 @@
     <TextView
         android:id="@+id/type_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         tools:text="@string/type"
         android:textColor="@color/colorPrimaryDarker"
         android:textAllCaps="true"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="4dp" />
-//dimensions in dimesions file
+
     <TextView
         android:id="@+id/title_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_height="match_parent"
         tools:text="@string/title"
         android:textColor="@color/colorPrimary"
         android:paddingLeft="8dp"
         android:paddingBottom="4dp"/>
 
-
     <TextView
         android:id="@+id/date_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:text="@string/date"
         android:textColor="@color/colorAccent"
@@ -44,8 +41,7 @@
     <TextView
         android:id="@+id/author_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         tools:text="@string/author"
         android:textColor="@color/colorPrimaryDark"
         android:paddingLeft="8dp" />
